@@ -136,3 +136,4 @@ C:\Users\wstoccob\Desktop\projects\Collector\Collector\obj\Debug\net8.0\refint\C
 C:\Users\wstoccob\Desktop\projects\Collector\Collector\obj\Debug\net8.0\Collector.pdb
 C:\Users\wstoccob\Desktop\projects\Collector\Collector\obj\Debug\net8.0\Collector.genruntimeconfig.cache
 C:\Users\wstoccob\Desktop\projects\Collector\Collector\obj\Debug\net8.0\ref\Collector.dll
+C:\Users\wstoccob\Desktop\projects\Collector\Collector\obj\Debug\net8.0\Collector.sourcelink.json
