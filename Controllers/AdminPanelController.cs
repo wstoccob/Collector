@@ -8,17 +8,11 @@ using Microsoft.EntityFrameworkCore;
 namespace Collector.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class AdminPanelController : Controller
+    public class AdminPanelController(UserManager<IdentityUser> userManager, ApplicationDbContext dbContext) : Controller
     {
-        private readonly UserManager<IdentityUser> _userManager;
-
-        public AdminPanelController(UserManager<IdentityUser> userManager)
-        {
-            _userManager = userManager;
-        }
         public async Task<IActionResult> Index()
         {
-            var users = await _userManager.Users.ToListAsync();
+            var users = await userManager.Users.ToListAsync();
             var usersDto = new List<UserDto>();
             foreach (var user in users)
             {
@@ -26,11 +20,18 @@ namespace Collector.Controllers
                 {
                     UserId = user.Id,
                     Email = user.Email!,
-                    Roles = await _userManager.GetRolesAsync(user)
+                    Roles = await userManager.GetRolesAsync(user)
                 };
                 usersDto.Add(userDto);
             }
             return View(usersDto);
+        }
+
+        public async Task<IActionResult> ChangeRole(string email)
+        {
+            var user = await userManager.FindByEmailAsync(email);
+            // userManager.
+            return View();
         }
     }
 }
