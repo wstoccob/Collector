@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<aspNetCore processPath="dotnet" arguments=".\\Collector.dll" stdoutLogEnabled="false" stdoutLogFile=".\\logs\\stdout">
+    <environmentVariables>
+        <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="Development" />
+    </environmentVariables>
+</aspNetCore>

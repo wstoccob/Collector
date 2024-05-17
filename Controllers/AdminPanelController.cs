@@ -22,10 +22,12 @@ namespace Collector.Controllers
             var usersDto = new List<UserDto>();
             foreach (var user in users)
             {
-                var userDto = new UserDto();
-                userDto.UserId = user.Id;
-                userDto.Email = user.Email;
-                userDto.Roles = await _userManager.GetRolesAsync(user);
+                var userDto = new UserDto
+                {
+                    UserId = user.Id,
+                    Email = user.Email!,
+                    Roles = await _userManager.GetRolesAsync(user)
+                };
                 usersDto.Add(userDto);
             }
             return View(usersDto);
