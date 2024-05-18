@@ -19,4 +19,11 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.4" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Account\Login.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Account\Register.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Account\Login.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Account\Register.cshtml" />
+    </ItemGroup>
+
 </Project>

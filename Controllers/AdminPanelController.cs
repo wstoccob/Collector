@@ -13,12 +13,13 @@ namespace Collector.Controllers
         public async Task<IActionResult> Index()
         {
             var users = await userManager.Users.ToListAsync();
-            var usersDto = new List<UserDto>();
+            var usersDto = new List<UserViewModel>();
             foreach (var user in users)
             {
-                var userDto = new UserDto
+                var userDto = new UserViewModel
                 {
                     UserId = user.Id,
+                    UserName = user.UserName!,
                     Email = user.Email!,
                     Roles = await userManager.GetRolesAsync(user)
                 };
