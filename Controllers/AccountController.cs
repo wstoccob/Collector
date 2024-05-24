@@ -61,7 +61,6 @@ public class AccountController(UserManager<IdentityUser> userManager, SignInMana
             }
             AddErrors(result);
         }
-
         return View(model);
     }
 
@@ -79,9 +78,12 @@ public class AccountController(UserManager<IdentityUser> userManager, SignInMana
         {
             return Redirect(returnUrl);
         }
-        else
-        {
-            return RedirectToAction(nameof(HomeController.Index), "Home");
-        }
+
+        return RedirectToAction(nameof(HomeController.Index), "Home");
+    }
+
+    public IActionResult AccessDenied()
+    {
+        return View();
     }
 }
