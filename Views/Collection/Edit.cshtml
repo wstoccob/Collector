@@ -1,0 +1,207 @@
+@model Collector.Models.Collection
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Collection</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label"></label>
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CustomInteger1State" /> @Html.DisplayNameFor(model => model.CustomInteger1State)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomInteger1Name" class="control-label"></label>
+                <input asp-for="CustomInteger1Name" class="form-control" />
+                <span asp-validation-for="CustomInteger1Name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CustomInteger2State" /> @Html.DisplayNameFor(model => model.CustomInteger2State)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomInteger2Name" class="control-label"></label>
+                <input asp-for="CustomInteger2Name" class="form-control" />
+                <span asp-validation-for="CustomInteger2Name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CustomInteger3State" /> @Html.DisplayNameFor(model => model.CustomInteger3State)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomInteger3Name" class="control-label"></label>
+                <input asp-for="CustomInteger3Name" class="form-control" />
+                <span asp-validation-for="CustomInteger3Name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CustomString1State" /> @Html.DisplayNameFor(model => model.CustomString1State)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomString1Name" class="control-label"></label>
+                <input asp-for="CustomString1Name" class="form-control" />
+                <span asp-validation-for="CustomString1Name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CustomString2State" /> @Html.DisplayNameFor(model => model.CustomString2State)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomString2Name" class="control-label"></label>
+                <input asp-for="CustomString2Name" class="form-control" />
+                <span asp-validation-for="CustomString2Name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CustomString3State" /> @Html.DisplayNameFor(model => model.CustomString3State)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomString3Name" class="control-label"></label>
+                <input asp-for="CustomString3Name" class="form-control" />
+                <span asp-validation-for="CustomString3Name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CustomMultilineText1State" /> @Html.DisplayNameFor(model => model.CustomMultilineText1State)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomMultilineText1Name" class="control-label"></label>
+                <input asp-for="CustomMultilineText1Name" class="form-control" />
+                <span asp-validation-for="CustomMultilineText1Name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CustomMultilineText2State" /> @Html.DisplayNameFor(model => model.CustomMultilineText2State)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomMultilineText2Name" class="control-label"></label>
+                <input asp-for="CustomMultilineText2Name" class="form-control" />
+                <span asp-validation-for="CustomMultilineText2Name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CustomMultilineText3State" /> @Html.DisplayNameFor(model => model.CustomMultilineText3State)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomMultilineText3Name" class="control-label"></label>
+                <input asp-for="CustomMultilineText3Name" class="form-control" />
+                <span asp-validation-for="CustomMultilineText3Name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CustomCheckbox1State" /> @Html.DisplayNameFor(model => model.CustomCheckbox1State)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomCheckbox1Name" class="control-label"></label>
+                <input asp-for="CustomCheckbox1Name" class="form-control" />
+                <span asp-validation-for="CustomCheckbox1Name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CustomCheckbox2State" /> @Html.DisplayNameFor(model => model.CustomCheckbox2State)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomCheckbox2Name" class="control-label"></label>
+                <input asp-for="CustomCheckbox2Name" class="form-control" />
+                <span asp-validation-for="CustomCheckbox2Name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CustomCheckbox3State" /> @Html.DisplayNameFor(model => model.CustomCheckbox3State)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomCheckbox3Name" class="control-label"></label>
+                <input asp-for="CustomCheckbox3Name" class="form-control" />
+                <span asp-validation-for="CustomCheckbox3Name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CustomDate1State" /> @Html.DisplayNameFor(model => model.CustomDate1State)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomDate1Name" class="control-label"></label>
+                <input asp-for="CustomDate1Name" class="form-control" />
+                <span asp-validation-for="CustomDate1Name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CustomDate2State" /> @Html.DisplayNameFor(model => model.CustomDate2State)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomDate2Name" class="control-label"></label>
+                <input asp-for="CustomDate2Name" class="form-control" />
+                <span asp-validation-for="CustomDate2Name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CustomDate3State" /> @Html.DisplayNameFor(model => model.CustomDate3State)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomDate3Name" class="control-label"></label>
+                <input asp-for="CustomDate3Name" class="form-control" />
+                <span asp-validation-for="CustomDate3Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

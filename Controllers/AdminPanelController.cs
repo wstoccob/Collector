@@ -10,6 +10,7 @@ namespace Collector.Controllers
     [Authorize(Roles = "Admin")]
     public class AdminPanelController(UserManager<IdentityUser> userManager, ApplicationDbContext dbContext) : Controller
     {
+        //GET: AdminPanel
         public async Task<IActionResult> Index()
         {
             var users = await userManager.Users.ToListAsync();
@@ -28,9 +29,11 @@ namespace Collector.Controllers
             return View(usersDto);
         }
 
-        public async Task<IActionResult> ChangeRole(string email)
+        // POST: Jokes/ChangeRole/username
+        [HttpPost]
+        public async Task<IActionResult> ChangeRole(string username)
         {
-            var user = await userManager.FindByEmailAsync(email);
+            var user = await userManager.FindByNameAsync(username);
             // userManager.
             return View();
         }

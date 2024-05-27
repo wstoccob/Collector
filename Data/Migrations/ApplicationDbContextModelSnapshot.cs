@@ -17,6 +17,216 @@ namespace Collector.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.4");
 
+            modelBuilder.Entity("Collector.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("Collector.Models.Collection", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateOnly>("CreatedDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CustomCheckbox1Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("CustomCheckbox1State")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CustomCheckbox2Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("CustomCheckbox2State")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CustomCheckbox3Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("CustomCheckbox3State")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CustomDate1Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("CustomDate1State")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CustomDate2Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("CustomDate2State")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CustomDate3Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("CustomDate3State")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CustomInteger1Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("CustomInteger1State")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CustomInteger2Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("CustomInteger2State")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CustomInteger3Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("CustomInteger3State")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CustomMultilineText1Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("CustomMultilineText1State")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CustomMultilineText2Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("CustomMultilineText2State")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CustomMultilineText3Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("CustomMultilineText3State")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CustomString1Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("CustomString1State")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CustomString2Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("CustomString2State")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CustomString3Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("CustomString3State")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Collections");
+                });
+
+            modelBuilder.Entity("Collector.Models.Item", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CollectionId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateOnly>("CreatedDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool?>("CustomCheckbox1")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool?>("CustomCheckbox2")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool?>("CustomCheckbox3")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateOnly?>("CustomDate1")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateOnly?>("CustomDate2")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateOnly?>("CustomDate3")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("CustomInt1")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("CustomInt2")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("CustomInt3")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CustomMultilineText1")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CustomMultilineText2")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CustomMultilineText3")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CustomString1")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CustomString2")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CustomString3")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CollectionId");
+
+                    b.ToTable("Items");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -211,6 +421,36 @@ namespace Collector.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("Collector.Models.Collection", b =>
+                {
+                    b.HasOne("Collector.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Collector.Models.Item", b =>
+                {
+                    b.HasOne("Collector.Models.Collection", "Collection")
+                        .WithMany()
+                        .HasForeignKey("CollectionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Collection");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
