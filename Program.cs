@@ -1,7 +1,9 @@
+using CloudinaryDotNet;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Collector.Data;
 using Collector.Models;
+using dotenv.net;
 using static Collector.RoleManagement;
 
 var builder = WebApplication.CreateBuilder(args);
