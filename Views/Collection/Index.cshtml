@@ -49,7 +49,7 @@
                 @Html.DisplayFor(modelItem => item.ImageUrl)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UserId)
+                @Html.DisplayFor(modelItem => userManager.FindByIdAsync(item.UserId))
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CategoryId)

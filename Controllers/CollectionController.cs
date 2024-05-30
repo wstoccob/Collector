@@ -20,10 +20,11 @@ namespace Collector.Controllers
             return View(await dbContext.Collections.ToListAsync());
         }
 
-        // GET: /Collection/Details/5
-        public ActionResult Details(int id)
+        // GET: /Collection/Details/id
+        public async Task<IActionResult> Details(int id)
         {
-            return View();
+            var collection = await dbContext.Collections.FindAsync(id);
+            return View(collection);
         }
 
         // GET: /Collection/Create
@@ -50,14 +51,18 @@ namespace Collector.Controllers
         {
             if (!ModelState.IsValid)
             {
-                if (string.IsNullOrEmpty(collection.Name))
-                    ModelState.AddModelError("Name", "The Name field is required.");
-                if (string.IsNullOrEmpty(collection.Description))
-                    ModelState.AddModelError("Description", "The Description field is required.");
-                if (collection.CategoryId == 0)
-                    ModelState.AddModelError("CategoryId", "The Category field is required.");
+                // Iterate through model state errors
+                foreach (var modelStateEntry in ModelState.Values)
+                {
+                    foreach (var error in modelStateEntry.Errors)
+                    {
+                        // Log the error message to the console or a log file
+                        Console.WriteLine($"Error: {error.ErrorMessage}");
+                    }
+                }
+
                 ViewBag.Categories = new SelectList(dbContext.Categories, "Id", "Name", collection.CategoryId);
-                return View(collection); // Return to the view with the model and validation errors
+                return View(collection);
             }
 
             var user = await userManager.GetUserAsync(User);

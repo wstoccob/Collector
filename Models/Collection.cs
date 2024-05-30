@@ -11,18 +11,20 @@ public class Collection
     public string Name { get; set; }
     [Required(ErrorMessage = "The Description field is required.")]
     public string Description { get; set; }
-    public string ImageUrl { get; set; }
+    public string? ImageUrl { get; set; }
     [NotMapped]
     [Required(ErrorMessage = "Please choose a collection image.")]
     public IFormFile ImageFile { get; set; }
     
     [ForeignKey("User")]
-    public string UserId { get; set; }
-    public IdentityUser User { get; set; }
+    public string? UserId { get; set; }
+    [NotMapped]
+    public IdentityUser? User { get; set; }
     
     [ForeignKey("Category")]
+    [Required(ErrorMessage = "The Category field is required.")]
     public int CategoryId { get; set; }
-    public Category Category { get; set; }
+    public Category? Category { get; set; }
     
     public DateOnly CreatedDate { get; set; }
 
