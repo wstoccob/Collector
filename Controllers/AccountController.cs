@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Collector.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using Collector.Controllers;
-using Collector.Models;
+
+namespace Collector.Controllers;
 
 public class AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
     : Controller

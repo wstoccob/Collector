@@ -1,4 +1,6 @@
+@using Microsoft.AspNetCore.Identity
 @model IEnumerable<Collector.Models.Collection>
+@inject UserManager<IdentityUser> userManager
 
 @{
     ViewData["Title"] = "Index";
@@ -26,100 +28,10 @@
                 @Html.DisplayNameFor(model => model.User)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Category)
+                @Html.DisplayNameFor(model => model.CategoryId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CreatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomInteger1State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomInteger1Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomInteger2State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomInteger2Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomInteger3State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomInteger3Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomString1State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomString1Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomString2State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomString2Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomString3State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomString3Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomMultilineText1State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomMultilineText1Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomMultilineText2State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomMultilineText2Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomMultilineText3State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomMultilineText3Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomCheckbox1State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomCheckbox1Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomCheckbox2State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomCheckbox2Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomCheckbox3State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomCheckbox3Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomDate1State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomDate1Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomDate2State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomDate2Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomDate3State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomDate3Name)
             </th>
             <th></th>
         </tr>
@@ -137,103 +49,13 @@
                 @Html.DisplayFor(modelItem => item.ImageUrl)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.Id)
+                @Html.DisplayFor(modelItem => item.UserId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Category.Id)
+                @Html.DisplayFor(modelItem => item.CategoryId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomInteger1State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomInteger1Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomInteger2State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomInteger2Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomInteger3State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomInteger3Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomString1State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomString1Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomString2State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomString2Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomString3State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomString3Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomMultilineText1State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomMultilineText1Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomMultilineText2State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomMultilineText2Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomMultilineText3State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomMultilineText3Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomCheckbox1State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomCheckbox1Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomCheckbox2State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomCheckbox2Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomCheckbox3State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomCheckbox3Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomDate1State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomDate1Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomDate2State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomDate2Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomDate3State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomDate3Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
 namespace Collector.Models;
@@ -6,9 +7,14 @@ namespace Collector.Models;
 public class Collection
 {
     public int Id { get; set; }
+    [Required(ErrorMessage = "The Name field is required.")]
     public string Name { get; set; }
+    [Required(ErrorMessage = "The Description field is required.")]
     public string Description { get; set; }
     public string ImageUrl { get; set; }
+    [NotMapped]
+    [Required(ErrorMessage = "Please choose a collection image.")]
+    public IFormFile ImageFile { get; set; }
     
     [ForeignKey("User")]
     public string UserId { get; set; }
