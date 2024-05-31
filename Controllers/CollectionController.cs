@@ -101,24 +101,25 @@ namespace Collector.Controllers
         }
 
         // GET: /Collection/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            return View();
-        }
-
-        // POST: /Collection/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
+            var collectionToDelete = await dbContext.Collections.FindAsync(id);
+            if (collectionToDelete is null)
             {
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            return View(collectionToDelete);
+        }
+
+        // Delete: /Collection/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var collection = await dbContext.Collections.FindAsync(id);
+            dbContext.Collections.Remove(collection);
+            await dbContext.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         private async Task<string> UploadImageToAzureBlobAsync(IFormFile imageFile)
