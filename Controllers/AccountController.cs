@@ -31,7 +31,6 @@ public class AccountController(UserManager<IdentityUser> userManager, SignInMana
                     return RedirectToLocal(returnUrl);
                 }
             }
-
             ModelState.AddModelError(string.Empty, "Invalid login attempt.");
         }
 

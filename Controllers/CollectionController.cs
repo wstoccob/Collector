@@ -1,5 +1,3 @@
-using System.Configuration;
-using System.Net;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Collector.Data;
